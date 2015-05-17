@@ -1,0 +1,108 @@
+<link rel="import" href="components/polymer/polymer.html">
+<link rel="import" href="components/font-roboto/roboto.html">
+<link rel="import" href="components/core-scaffold/core-scaffold.html">
+<link rel="import" href="components/core-header-panel/core-header-panel.html">
+<link rel="import" href="components/core-toolbar/core-toolbar.html">
+<link rel="import" href="components/core-menu/core-menu.html">
+<link rel="import" href="components/core-item/core-item.html">
+<link rel="import" href="components/core-icons/core-icons.html">
+<link rel="import" href="components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="components/paper-fab/paper-fab.html">
+<link rel="import" href="components/core-pages/core-pages.html">
+
+<link rel="import" href="wifi-card.html">
+
+<polymer-element name="app-wifizone">
+    <template>
+        <style>
+            core-scaffold {
+                font-family: 'RobotoDraft', sans-serif;
+            }
+            .fab {
+                position: fixed;
+                right: 50px;
+                bottom: 50px;
+                -webkit-transform: translateZ(0);
+                z-index:9999;
+            }
+        </style>
+        
+        <paper-fab class="fab" icon="add" on-tap="{{addWifi}}"></paper-fab>
+         
+        <core-scaffold mode="waterfall">
+            <core-header-panel navigation flex mode="waterfall">
+                <core-toolbar>
+                    <span>{{menu}}</span>
+                </core-toolbar>
+                <core-menu on-core-select="{{selectAction}}">
+                    <core-item num="0" label="Wifi" icon="add-circle-outline"></core-item>
+                    <core-item num="1" label="Licenças" icon="assignment"></core-item>
+                </core-menu>
+            </core-header-panel>
+            
+            <div tool horizontal layout flex center-justified class="middle">
+                {{tittle}}
+            </div>
+            
+            <core-pages id="pages" selected="0">
+                <div fit>
+                    <template repeat="{{post in wifi}}">
+                        <wifi-card content="{{post}}"></wifi-card>
+                    </template>
+                </div>
+                <div fit>
+                    <div style="border: 1px solid #bebebe; padding: 16px; margin: 16px; border-radius: 5px; background-color: #fff; color: #555;">
+                        <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #666; text-align: center;">
+                        W
+                        </div>
+                        <div style="font-size: 22px; padding: 8px 0 16px; color: #888;">
+                            Wifi Zone
+                        </div>
+                        <div style="font-size: 16px; padding-bottom: 8px;">
+                            Este software é Affero GPLv3 https://github.com/frkr/polymerboot
+                        </div>
+                        <div style="font-size: 12px;">
+                            &bullet; polymerboot MIT https://github.com/frkr/polymerboot
+                        </div>
+                        <div style="font-size: 12px;">
+                            &bullet; Polymer BSD https://github.com/Polymer/polymer
+                        </div>
+                    </div>
+                </div>
+            </core-pages>
+            
+        </core-scaffold>
+    </template>
+    <script>
+            Polymer(
+                {
+                    menu: "Wifi Zone",
+                    tittle: "Wifi",
+                    wifi: [],
+                    ready: function()
+                    {
+                        this.wifi=[];
+                        this.addWifi();
+                    },
+                    addWifi: function (e, detail)
+                    {
+                        this.wifi.push(
+                            {
+                                 tittle: "Voucher"
+                                ,text: "" + Math.floor((Math.random() * 999999) + 100000)
+                            }
+                        );
+                    },
+                    selectAction: function (e, detail)
+                    {
+                        if (detail.isSelected)
+                        {
+                          var selectedItem = detail.item;
+                          this.$.pages.selected = selectedItem.attributes.num.nodeValue;
+                          this.tittle = selectedItem.attributes.label.nodeValue;
+                        }
+                    }
+                }
+            );
+    </script>
+</polymer-element>

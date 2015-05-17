@@ -1,0 +1,30 @@
+{
+  "name": "wifizone",
+  "homepage": "https://github.com/frkr/wifizone",
+  "authors": [
+    "Davi SM <davimesquita@gmail.com>"
+  ],
+  "description": "Projeto, prova de conceito, para Wifi Self Service usando PfSense Captive Portal Voucher",
+  "main": "index.html",
+  "keywords": [
+    "wifi",
+    "pfsense",
+    "captive",
+    "portal",
+    "voucher"
+  ],
+  "license": "Affero GPLV3",
+  "private": true,
+  "dependencies": {
+    "font-roboto": "polymer/font-roboto#~0.5.0",
+    "polymer": "polymer/polymer#~0.5.0",
+    "core-scaffold": "polymer/core-scaffold#~0.5.0",
+    "core-header-panel": "polymer/core-header-panel#~0.5.0",
+    "core-toolbar": "polymer/core-toolbar#~0.5.0",
+    "core-menu": "polymer/core-menu#~0.5.0",
+    "core-item": "polymer/core-item#~0.5.0",
+    "paper-icon-button": "polymer/paper-icon-button#~0.5.0",
+    "paper-fab": "polymer/paper-fab#~0.5.0",
+    "core-pages": "polymer/core-pages#~0.5.6"
+  }
+}

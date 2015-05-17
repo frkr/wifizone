@@ -1,0 +1,20 @@
+<link rel="import" href="components/polymer/polymer.html">
+
+<polymer-element name="wifi-card" attributes="content" noscript>
+    <template>
+        <div style="border: 1px solid #bebebe; padding: 16px; margin: 16px; border-radius: 5px; background-color: #fff; color: #555;">
+        <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #666; text-align: center;">
+        W
+        </div>
+        <div style="font-size: 22px; padding: 8px 0 16px; color: #888;">
+            {{content.tittle}}
+        </div>
+        <div style="font-size: 16px; padding-bottom: 8px;">
+            Anote o número: {{content.text}}
+        </div>
+        <div style="font-size: 12px;">
+            WifiZone
+        </div>
+        </div>
+    </template>
+</polymer>
