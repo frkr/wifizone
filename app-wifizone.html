@@ -92,10 +92,7 @@
                              tittle: "Voucher"
                             ,text: "" + Math.floor((Math.random() * 999999) + 100000)
                     };
-                    if (this.wifi.length >= 10) {
-                        this.wifi.pop();
-                    }
-                    this.wifi.splice(0,0,voucher);
+                    this.wifi.splice(0,1,voucher);
                 },
                 selectAction: function (e, detail)
                 {
