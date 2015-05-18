@@ -60,13 +60,13 @@
                             Wifi Zone
                         </div>
                         <div style="font-size: 16px; padding-bottom: 8px;">
-                            Este software é Affero GPLv3 https://github.com/frkr/polymerboot
+                            Este software é Affero GPLv3 <a href="https://github.com/frkr/wifizone">https://github.com/frkr/wifizone</a>
                         </div>
                         <div style="font-size: 12px;">
-                            &bullet; polymerboot MIT https://github.com/frkr/polymerboot
+                            &bullet; polymerboot MIT <a href="https://github.com/frkr/polymerboot">https://github.com/frkr/polymerboot</a>
                         </div>
                         <div style="font-size: 12px;">
-                            &bullet; Polymer BSD https://github.com/Polymer/polymer
+                            &bullet; Polymer BSD <a href="https://github.com/Polymer/polymer">https://github.com/Polymer/polymer</a>
                         </div>
                     </div>
                 </div>
@@ -75,35 +75,38 @@
         </core-scaffold>
     </template>
     <script>
-            Polymer(
+        Polymer(
+            {
+                menu: "WifiZone",
+                tittle: "Wifi",
+                wifi: [],
+                ready: function()
                 {
-                    menu: "Wifi Zone",
-                    tittle: "Wifi",
-                    wifi: [],
-                    ready: function()
+                    this.wifi=[];
+                    this.addWifi();
+                },
+                addWifi: function (e, detail)
+                {
+                    var voucher=
                     {
-                        this.wifi=[];
-                        this.addWifi();
-                    },
-                    addWifi: function (e, detail)
+                             tittle: "Voucher"
+                            ,text: "" + Math.floor((Math.random() * 999999) + 100000)
+                    };
+                    if (this.wifi.length >= 10) {
+                        this.wifi.pop();
+                    }
+                    this.wifi.splice(0,0,voucher);
+                },
+                selectAction: function (e, detail)
+                {
+                    if (detail.isSelected)
                     {
-                        this.wifi.push(
-                            {
-                                 tittle: "Voucher"
-                                ,text: "" + Math.floor((Math.random() * 999999) + 100000)
-                            }
-                        );
-                    },
-                    selectAction: function (e, detail)
-                    {
-                        if (detail.isSelected)
-                        {
-                          var selectedItem = detail.item;
-                          this.$.pages.selected = selectedItem.attributes.num.nodeValue;
-                          this.tittle = selectedItem.attributes.label.nodeValue;
-                        }
+                      var selectedItem = detail.item;
+                      this.$.pages.selected = selectedItem.attributes.num.nodeValue;
+                      this.tittle = selectedItem.attributes.label.nodeValue;
                     }
                 }
-            );
+            }
+        );
     </script>
 </polymer-element>
