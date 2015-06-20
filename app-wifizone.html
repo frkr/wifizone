@@ -27,9 +27,9 @@
                 z-index:9999;
             }
         </style>
-        
+
         <paper-fab class="fab" icon="add" on-tap="{{addWifi}}"></paper-fab>
-         
+
         <core-scaffold mode="waterfall">
             <core-header-panel navigation flex mode="waterfall">
                 <core-toolbar>
@@ -40,11 +40,11 @@
                     <core-item num="1" label="Licenças" icon="assignment"></core-item>
                 </core-menu>
             </core-header-panel>
-            
+
             <div tool horizontal layout flex center-justified class="middle">
                 {{tittle}}
             </div>
-            
+
             <core-pages id="pages" selected="0">
                 <div fit>
                     <template repeat="{{post in wifi}}">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </core-pages>
-            
+
         </core-scaffold>
     </template>
     <script>
